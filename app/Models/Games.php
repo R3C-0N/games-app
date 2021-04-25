@@ -9,6 +9,8 @@ class Games extends Model
 {
     use HasFactory;
 
+
+    protected $primaryKey = 'games_id';
     /**
      * The attributes that are mass assignable.
      *

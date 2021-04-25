@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-});
+$GamesController = 'App\Http\Controllers\GamesController';
+Route::get('/', $GamesController.'@displayAll');
+Route::get('/game/{gameurl}', $GamesController.'@load');

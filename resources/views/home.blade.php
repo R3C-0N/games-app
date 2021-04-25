@@ -1,11 +1,11 @@
 @extends('layouts.template')
-
 @section('title', 'Home')
 
-@section('sidebar')
-    <p>This is appended to the master sidebar.</p>
-@endsection
 
 @section('content')
-    <p>This is my body content.</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            @include('layouts.gamecard')
+        </div>
+    </div>
 @endsection

@@ -12,7 +12,7 @@
                     <a class="nav-link" aria-current="page" href="/">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" aria-current="page" href="/connect">Se connecter</a>
+                    <a class="nav-link" aria-current="page" href="/connect">Se connecter</a>
                 </li>
             </ul>
             <form class="d-flex" action="/search" method="post">

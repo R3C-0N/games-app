@@ -13,5 +13,9 @@ use App\Http\Controllers;
 |
 */
 $GamesController = 'App\Http\Controllers\GamesController';
+$UserController = 'App\Http\Controllers\UserController';
 Route::get('/', $GamesController.'@displayAll');
 Route::get('/game/{gameurl}', $GamesController.'@load');
+
+
+Route::get('/connect', $UserController.'@connect');

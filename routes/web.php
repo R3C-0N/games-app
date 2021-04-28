@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\GamesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 /*
@@ -12,10 +14,7 @@ use App\Http\Controllers;
 | contains the "web" middleware group. Now create something great!
 |
 */
-$GamesController = 'App\Http\Controllers\GamesController';
-$UserController = 'App\Http\Controllers\UserController';
-Route::get('/', $GamesController.'@displayAll');
-Route::get('/game/{gameurl}', $GamesController.'@load');
+Auth::routes();
 
-
-Route::get('/connect', $UserController.'@connect');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/game/{gameurl}', [GamesController::class, 'load']);

@@ -7,8 +7,7 @@ use Illuminate\Http\Request;
 
 class GamesController extends Controller
 {
-    public function displayAll(){
-        $games = Games::all();
-        return view('home', ['games' => $games]);
+    public static function getAll(){
+        return Games::all();
     }
 }

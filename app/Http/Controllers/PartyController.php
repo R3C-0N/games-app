@@ -11,6 +11,6 @@ class PartyController extends Controller
         return Party::all();
     }
     public static function get($id){
-        return Party::all()->get($id);
+        return Party::all()->find($id);
     }
 }

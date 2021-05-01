@@ -13,6 +13,6 @@ class UserController extends Controller
         return User::all();
     }
     public static function get($id){
-        return User::all()->get($id);
+        return User::all()->find($id);
     }
 }

@@ -11,6 +11,6 @@ class GamesController extends Controller
         return Games::all();
     }
     public static function get($id){
-        return Games::all()->get($id);
+        return Games::all()->find($id);
     }
 }

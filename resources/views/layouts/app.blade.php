@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'bg-black' : '' }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -25,13 +25,13 @@
     <link rel="stylesheet" href="{{ asset('css/template.css') }}">
 
 </head>
-<body class="antialiased  bg-transparent">
+<body class="antialiased">
 @include('layouts.nav')
 
 @section('section')
 @show
 
-<div id="app>
+<div id="app">
     <div class="container">
         <main class="py-4">
             @yield('content')

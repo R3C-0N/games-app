@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Games;
+use App\Models\Party;
 use Illuminate\Http\Request;
 
 class GamesController extends Controller
@@ -10,9 +11,16 @@ class GamesController extends Controller
     public static function getAll(){
         return Games::all();
     }
+
     public static function get($id){
         return Games::all()->find($id);
     }
+
+    public static function getPartyOfGame($id, $page=1){
+        $game = Games::all()->find($id);
+        return Party::all()->where('game','=',$game->getAttribute('games_id'));
+    }
+
     public static function put($id, Games $modif){
         $game = Games::all()->find($id);
         $game->setAttribute('name',$modif->getAttribute('name'));

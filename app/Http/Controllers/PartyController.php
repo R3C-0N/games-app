@@ -10,9 +10,11 @@ class PartyController extends Controller
     public static function getAll(){
         return Party::all();
     }
+
     public static function get($id){
         return Party::all()->find($id);
     }
+
     public static function put($id, Party $modif){
         $party = Party::all()->find($id);
         $party->setAttribute('game',$modif->getAttribute('game'));

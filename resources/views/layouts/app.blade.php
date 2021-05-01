@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'bg-black' : '' }}">
 <head>
     <title>{{ config('app.name', 'Laravel') }}</title>
 

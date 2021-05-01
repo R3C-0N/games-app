@@ -10,14 +10,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="nav nav-pills mr-auto">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">{{ __('Accueil') }}</a>
                 </li>
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="nav nav-pills ml-auto dropdown-menu-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }} bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0 dropdown-menu-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }} bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
@@ -32,11 +32,11 @@
                         </li>
                     @endif
                 @else
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown dropstart">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-right bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}" aria-labelledby="navbarDropdown">
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -50,10 +50,10 @@
                             <li><a class="dropdown-item" href="#">{{ __('Réglages') }}</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="form-check form-switch dropdown-item text-center">
+                                <span class="form-check form-switch dropdown-item">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault" style="margin-right: 2.5rem;">{{ __('Darkmode') }}</label>
                                     <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ __('Darkmode') }}</label>
-                                </a>
+                                </span>
                             </li>
                         </ul>
                     </li>

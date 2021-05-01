@@ -21,7 +21,7 @@ Route::group(['prefi' => 'api'], function () {
    // UTILISATEUR
     Route::get('/user', [UserController::class, 'getAll']);
     Route::get('/user/{id}', [UserController::class, 'get']);
-    // Route::put('/user{id}', [UserController::class, 'put']);
+    Route::put('/user/{id}', [UserController::class, 'put']);
     // Route::post('/user/{id}', [UserController::class, 'post']);
     // Route::delete('/user/{id}', [UserController::class, 'delete']);
 

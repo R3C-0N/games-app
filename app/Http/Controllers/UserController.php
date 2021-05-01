@@ -17,12 +17,18 @@ class UserController extends Controller
     }
 
     public static function put($id, User $modif){
-        $user = User::all()->find($id);
-        $user->setAttribute('name',$modif->getAttribute('name'));
-        $user->setAttribute('email',$modif->getAttribute('email'));
-        $user->setAttribute('password',$modif->getAttribute('password'));
-        $user->save();
-        return $user;
+        return $modif;
+        try {
+            $user = User::all()->find($id);
+//            $user->setAttribute('name',$modif->getAttribute('name'));
+//            $user->setAttribute('email',$modif->getAttribute('email'));
+//            $user->setAttribute('password',$modif->getAttribute('password'));
+            $user->save();
+            return $user;
+        }
+        catch (\Exception $e){
+            return $e;
+        }
     }
 
     public static function post($id, User $user){

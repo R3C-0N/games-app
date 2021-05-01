@@ -52,7 +52,7 @@
                             <li>
                                 <span class="form-check form-switch dropdown-item">
                                     <label class="form-check-label" for="flexSwitchCheckDefault" style="margin-right: 2.5rem;">{{ __('Darkmode') }}</label>
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="toogleDarkmode(this)" {{ Auth::user()->darkmode ? 'checked' : '' }}>
                                 </span>
                             </li>
                         </ul>

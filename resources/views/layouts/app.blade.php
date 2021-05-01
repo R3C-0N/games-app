@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'bg-black' : '' }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'bg-black' : 'bg-none' }}">
 <head>
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -18,6 +18,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script>
+        {!! isset( Auth::user()->id ) ? "window['user']=".json_encode(Auth::user()) : '' !!}
+    </script>
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">

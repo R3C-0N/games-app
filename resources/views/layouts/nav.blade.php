@@ -1,6 +1,6 @@
 <script src="{{asset('js/nav.js')}}"></script>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }} bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}">
     <div class="container-fluid">
         <h2 class="navbar-brand">
             {{ config('app.name', 'Laravel') }}
@@ -17,7 +17,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="nav nav-pills ml-auto">
+            <ul class="nav nav-pills ml-auto dropdown-menu-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }} bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
@@ -36,7 +36,7 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-right bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}" aria-labelledby="navbarDropdown">
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -48,6 +48,13 @@
                                 </form>
                             </li>
                             <li><a class="dropdown-item" href="#">{{ __('Réglages') }}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="form-check form-switch dropdown-item text-center">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ __('Darkmode') }}</label>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 @endguest

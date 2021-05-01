@@ -17,18 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefi' => 'api'], function () {
+Route::group(['prefix' => 'api'], function () {
    // UTILISATEUR
-   Route::get('/user', [UserController::class, 'getAll']);
-   Route::get('/user/{id}', [UserController::class, 'get']);
+    Route::get('/user', [UserController::class, 'getAll']);
+    Route::get('/user/{id}', [UserController::class, 'get']);
+    Route::put('/user{id}', [UserController::class, 'put']);
+    Route::post('/user/{id}', [UserController::class, 'post']);
+    // Route::delete('/user/{id}', [UserController::class, 'delete']);
 
-   // GAMES
+    // GAMES
     Route::get('/game', [GamesController::class, 'getAll']);
     Route::get('/game/{id}', [GamesController::class, 'get']);
+    Route::put('/game{id}', [GamesController::class, 'put']);
+    Route::post('/game/{id}', [GamesController::class, 'post']);
+    // Route::delete('/game/{id}', [GamesController::class, 'delete']);
 
    // PARTY
     Route::get('/party', [PartyController::class, 'getAll']);
-    Route::get('/party/{id}', [UserController::class, 'get']);
+    Route::get('/party/{id}', [PartyController::class, 'get']);
+    Route::put('/party{id}', [PartyController::class, 'put']);
+    Route::post('/party/{id}', [PartyController::class, 'post']);
+    // Route::delete('/party/{id}', [PartyController::class, 'delete']);
 
 
 

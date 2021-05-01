@@ -23,12 +23,12 @@ Route::group(['prefi' => 'api'], function () {
    Route::get('/user/{id}', [UserController::class, 'get']);
 
    // GAMES
-    Route::get('/user', [GamesController::class, 'getAll']);
-    Route::get('/user/{id}', [GamesController::class, 'get']);
+    Route::get('/game', [GamesController::class, 'getAll']);
+    Route::get('/game/{id}', [GamesController::class, 'get']);
 
    // PARTY
-    Route::get('/user', [PartyController::class, 'getAll']);
-    Route::get('/user/{id}', [UserController::class, 'get']);
+    Route::get('/party', [PartyController::class, 'getAll']);
+    Route::get('/party/{id}', [UserController::class, 'get']);
 
 
 

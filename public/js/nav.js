@@ -8,6 +8,10 @@ function main(){
 }
 document.addEventListener('DOMContentLoaded',main);
 
+window.setTimeout(() => {
+    CRSF_TOKEN = document.querySelector('meta#csrf-token').content;
+}, 1000);
+
 function toogleDarkmode(){
     window['user']['darkmode'] = (window['user']['darkmode']+1)%2;
     setDarkMode(window['user']['darkmode']);
@@ -19,7 +23,8 @@ function updateUser(user){
         method:'put',
         url: "/api/user/"+user['id'],
         data: {
-            modif: user
+            data: user,
+            token: CRSF_TOKEN
         },
         success: function( result ) {
             console.log(result);

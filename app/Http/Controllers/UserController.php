@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use MongoDB\Driver\Session;
 
 class UserController extends Controller
 {
@@ -16,13 +17,13 @@ class UserController extends Controller
         return User::all()->find($id);
     }
 
-    public static function put($id, User $modif){
-        return $modif;
+    public static function put($id, Request $modif){
         try {
             $user = User::all()->find($id);
-//            $user->setAttribute('name',$modif->getAttribute('name'));
-//            $user->setAttribute('email',$modif->getAttribute('email'));
-//            $user->setAttribute('password',$modif->getAttribute('password'));
+            $user->setAttribute('name',$modif->data['name']);
+            $user->setAttribute('email',$modif->data['email']);
+            //$user->setAttribute('password',$modif->data['password']);
+            $user->setAttribute('darkmode',$modif->data['darkmode']);
             $user->save();
             return $user;
         }
@@ -31,11 +32,11 @@ class UserController extends Controller
         }
     }
 
-    public static function post($id, User $user){
+    public static function post($id, Request $user){
         $newUser= new User();
-        $newUser->setAttribute('name',$user->getAttribute('name'));
-        $newUser->setAttribute('email',$user->getAttribute('email'));
-        $newUser->setAttribute('password',$user->getAttribute('password'));
+        $newUser->setAttribute('name',$user->data['name']);
+        $newUser->setAttribute('email',$user->data['email']);
+        $newUser->setAttribute('password',$user->data['password']);
         $newUser->save();
         return $newUser;
     }

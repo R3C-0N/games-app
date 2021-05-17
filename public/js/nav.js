@@ -65,4 +65,13 @@ function setDarkMode(value){
         node.classList.remove("bg-"+other);
         node.classList.add("bg-"+choose);
     }
+
+    dark = ['black', 'white'];
+    choose = dark[value];
+    other = dark[(value+1)%2];
+    for(let node of document.querySelectorAll(".text-"+other))
+    {
+        node.classList.remove("text-"+other);
+        node.classList.add("text-"+choose);
+    }
 }

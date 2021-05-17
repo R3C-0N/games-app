@@ -36,4 +36,15 @@ class HomeController extends Controller
         }
         return view('home', ['games' => GamesController::getAll()]);
     }
+
+    public function settings()
+    {
+        return view('auth.settings');
+    }
+
+    public static function cssDarkmode($begin, $choice1, $choice2) {
+        $choice = isset(Auth::user()->darkmode) && Auth::user()->darkmode ? $choice1 : $choice2;
+        return $begin.$choice;
+    }
+
 }

@@ -1,6 +1,6 @@
 <script src="{{asset('js/nav.js')}}"></script>
 
-<nav class="navbar navbar-expand-lg navbar-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }} bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}">
+<nav class="navbar navbar-expand-lg {{ \App\Http\Controllers\HomeController::cssDarkmode('navbar-', 'dark', 'light') }} {{ \App\Http\Controllers\HomeController::cssDarkmode('bg-', 'dark', 'light') }}">
     <div class="container-fluid">
         <h2 class="navbar-brand">
             {{ config('app.name', 'Laravel') }}
@@ -17,7 +17,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto mb-2 mb-lg-0 dropdown-menu-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }} bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}">
+            <ul class="navbar-nav ml-auto mb-2 mb-lg-0 {{ \App\Http\Controllers\HomeController::cssDarkmode('dropdown-menu-', 'dark', 'light') }} {{ \App\Http\Controllers\HomeController::cssDarkmode('bg-', 'dark', 'light') }}">
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('login'))
@@ -36,7 +36,7 @@
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
-                        <ul class="dropdown-menu bg-{{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'dark' : 'light' }}" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu {{ \App\Http\Controllers\HomeController::cssDarkmode('bg-', 'dark', 'light') }}" aria-labelledby="navbarDropdown">
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -47,7 +47,7 @@
                                     @csrf
                                 </form>
                             </li>
-                            <li><a class="dropdown-item" href="#">{{ __('Réglages') }}</a></li>
+                            <li><a class="dropdown-item" href="{{ route('settings') }}">{{ __('Réglages') }}</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                 <span class="form-check form-switch dropdown-item">

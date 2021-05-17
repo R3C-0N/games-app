@@ -18,6 +18,10 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/game/{gameurl}', [GamesController::class, 'load']);
 
+
+Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
+Route::post('/settings', [HomeController::class, 'settings'])->name('settings.confirm');
+
 //Route::get('/email/verify', function () {
 //    return view('auth.verify');
 //})->middleware('auth')->name('verification.notice');

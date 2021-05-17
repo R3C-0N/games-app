@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefi' => 'api'], function () {
    // UTILISATEUR
-    Route::get('/user', [UserController::class, 'getAll']);
+    // Route::get('/user', [UserController::class, 'getAll']);
     Route::get('/user/{id}', [UserController::class, 'get']);
     Route::put('/user/{id}', [UserController::class, 'put']);
     // Route::post('/user/{id}', [UserController::class, 'post']);
@@ -38,9 +38,6 @@ Route::group(['prefi' => 'api'], function () {
     // Route::put('/party{id}', [PartyController::class, 'put']);
     // Route::post('/party/{id}', [PartyController::class, 'post']);
     // Route::delete('/party/{id}', [PartyController::class, 'delete']);
-
-
-
 
 
 });

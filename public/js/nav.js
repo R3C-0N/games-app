@@ -18,18 +18,23 @@ function toogleDarkmode(){
     updateUser(window['user']);
 }
 
-function updateUser(user){
+function apiRequest(url, request, method){
     $.ajax({
-        method:'put',
-        url: "/api/user/"+user['id'],
+        method: method,
+        url: "/api/"+url,
         data: {
-            data: user,
+            data: request,
+            userId: window['user']['id'],
             token: CRSF_TOKEN
         },
         success: function( result ) {
             console.log(result);
         }
     });
+}
+
+function updateUser(user){
+    apiRequest('user/'+user['id'], user, 'put');
 }
 
 function setDarkMode(value){

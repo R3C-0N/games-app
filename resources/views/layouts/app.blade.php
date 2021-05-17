@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('css/template.css') }}">
 
 </head>
-<body class="antialiased {{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'bg-black' : '' }}">
+<body class="antialiased {{ isset(Auth::user()->darkmode) && Auth::user()->darkmode ? 'bg-black' : 'bg-none' }}">
 @include('layouts.nav')
 
 @section('section')

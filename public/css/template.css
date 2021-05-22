@@ -6,3 +6,7 @@ body {
 }
 .bg-none{
 }
+
+.hidden{
+    display: none !important;
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\GamesController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -19,8 +20,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/game/{gameurl}', [GamesController::class, 'load']);
 
 
-Route::get('/settings', [HomeController::class, 'settings'])->name('settings');
-Route::post('/settings', [HomeController::class, 'settings'])->name('settings.confirm');
+Route::get('/settings', [SettingsController::class, 'settings'])->name('settings');
+Route::post('/settings/update', [SettingsController::class, 'updateAccount'])->name('settings.update');
+Route::post('/settings/delete', [SettingsController::class, 'deleteAccount'])->name('settings.delete');
+
+Route::post('/test', [HomeController::class, 'testPage'])->name('testPage');
 
 //Route::get('/email/verify', function () {
 //    return view('auth.verify');

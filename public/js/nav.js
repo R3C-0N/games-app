@@ -1,10 +1,32 @@
 function main(){
     const navlinks = document.querySelectorAll('.nav-link');
+    const passwordSpans = document.querySelectorAll('span.input-group-text.password');
     for (let navlink of navlinks) {
         if (navlink.href == window.location.origin+window.location.pathname) {
             navlink.classList.add('active');
         }
     }
+    for (let passwordSpan of passwordSpans) {
+        passwordSpan.onclick = function () {
+            let svgs = this.querySelectorAll('svg');
+            let type = 'password';
+            for (let svg of svgs) {
+                if (svg.classList.contains('hidden') && svg.classList.contains('bi-eye-fill')) {
+                    svg.classList.remove('hidden');
+                    type = 'text';
+
+                } else if (svg.classList.contains('hidden')) {
+                    svg.classList.remove('hidden');
+
+                }
+                else {
+                    svg.classList.add('hidden');
+                }
+            }
+            this.closest('div').querySelector('input').type = type;
+        }
+    }
+
 }
 document.addEventListener('DOMContentLoaded',main);
 
@@ -74,4 +96,8 @@ function setDarkMode(value){
         node.classList.remove("text-"+other);
         node.classList.add("text-"+choose);
     }
+}
+
+function tooglePassword(event, test) {
+    console.log(event.target, test);
 }
